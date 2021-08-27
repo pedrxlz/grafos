@@ -1,55 +1,67 @@
 import operator
+from collections import defaultdict
 
 grafo = {
-        'RS': {'SC'},
-        'SC': {'RS', 'PR'},
-        'PR': {'SC', 'SP', 'MS'},
-        'SP': {'PR', 'MS', 'MG', 'RJ'},
-        'MS': {'MT', 'SP', 'GO', 'MG', 'PR'},
-        'RJ': {'ES', 'SP', 'MG'},
-        'MG': {'SP', 'GO', 'ES', 'MS', 'RJ', 'DF'},
-        'GO': {'BA', 'DF', 'MG', 'MS'},
-        'MT': {'RO', 'PA', 'TO', 'MS'},
-        'ES': {'BA', 'MG', 'RJ'},
-        'DF': {'GO', 'MG'},
-        'BA': {'PE', 'AL', 'PI', 'GO', 'SE', 'ES', 'TO', 'MG'},
-        'SE': {'BA', 'AL'},
-        'AL': {'BA', 'PE', 'SE'},
-        'PE': {'CE', 'BA', 'AL', 'PI', 'PB'},
-        'PI': {'BA', 'PE', 'CE', 'TO', 'MA'},
-        'TO': {'MT', 'BA', 'PI', 'PA', 'MA'},
-        'PA': {'MT', 'AP', 'TO', 'MA', 'AM', 'RR'},
-        'RO': {'AC', 'MT', 'AM'},
-        'AC': {'RO', 'AM'},
-        'AM': {'RO', 'AC', 'PA', 'RR'},
-        'RR': {'AM', 'PA'},
-        'AP': {'PA'},
-        'MA': {'PA', 'TO', 'PI'},
-        'CE': {'PE', 'PI', 'RN', 'PB'},
-        'PB': {'RN', 'PE', 'CE'},
-        'RN': {'PB', 'CE'}}
+        'RS': ['SC'],
+        'SC': ['PR'],
+        'PR': ['SP', 'MS'],
+        'SP': ['MS', 'MG', 'RJ'],
+        'MS': ['MT', 'GO', 'MG'],
+        'RJ': ['ES', 'MG'],
+        'MG': ['GO', 'ES', 'DF'],
+        'GO': ['BA'],
+        'MT': ['RO', 'PA', 'TO'],
+        'ES': ['BA'],
+        'DF': ['GO'],
+        'BA': ['PE', 'AL', 'PI', 'TO', 'MG'],
+        'SE': ['BA', 'AL'],
+        'AL': ['PE'],
+        'PE': ['CE', 'PI', 'PB'],
+        'PI': ['CE', 'TO', 'MA'],
+        'TO': ['PA', 'MA'],
+        'PA': ['AM', 'RR'],
+        'RO': ['AC'],
+        'AC': ['AM'],
+        'AM': ['RO'],
+        'RR': ['AM'],
+        'AP': ['PA'],
+        'MA': ['PA'],
+        'CE': ['PB'],
+        'PB': ['RN'],
+        'RN': ['CE']
+        }
+
 
 i = 0
-vizinhos = dict()
+vizinhos = defaultdict(list)
 for v in grafo:
     for u in grafo[v]:
-        i += 1
-    vizinhos[v] = [i]
-    i = 0
+        vizinhos[v].append(u)
+        vizinhos[u].append(v)
+   
+g = 0
+frequencia = dict()
+for v in vizinhos:
+    for u in vizinhos[v]:
+        g += 1
+    frequencia[v] = [g]
+    g = 0        
+        
+    
 
 print("\n===============================================================")
 
-print("\nEstado com o maior numero de vizinhos: " + max(vizinhos.items(), key=operator.itemgetter(1))[0])
+print("\nEstado com o maior numero de vizinhos: " + max(frequencia.items(), key=operator.itemgetter(1))[0])
 
 print("\n===============================================================")
 
 print("\nVertices e seus respectivos vizinhos: ")
-print(grafo)
+print(vizinhos)
 
 print("\n===============================================================")
 
 print("\nFrequencia do grau de cada vertice: ")
-print(vizinhos)
+print(frequencia)
 
 print("\n===============================================================")
 
@@ -58,9 +70,8 @@ arestas = 0
 for v in grafo:
     vertices += 1
     for u in grafo[v]:
-        arestas += 1
+       arestas += 1
+
 print('\nDensidade do grafo:', arestas/vertices)
 
 print("\n===============================================================")
-
-
