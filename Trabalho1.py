@@ -55,13 +55,16 @@ print("\nEstado com o maior numero de vizinhos: " + max(frequencia.items(), key=
 
 print("\n===============================================================")
 
-print("\nVertices e seus respectivos vizinhos: ")
-print(vizinhos)
-
+print("\nVertices e seus respectivos vizinhos:\n ")
+for v in vizinhos:
+    print(v, "=> ", vizinhos[v])
+    
 print("\n===============================================================")
 
 print("\nFrequencia do grau de cada vertice: ")
-print(frequencia)
+print()
+for v in frequencia:
+    print(v, "=> ", frequencia[v], "arestas")
 
 print("\n===============================================================")
 
