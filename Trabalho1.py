@@ -57,7 +57,7 @@ for v in frequencia:
             maior = u
             vertMaior = v         
 
-menor = 1000
+menor = maior
 for f in frequencia:
     for g in frequencia[f]:
         if g < menor:
@@ -96,4 +96,5 @@ for v in grafo:
 print('\nDensidade do grafo:', arestas/vertices)
 
 print("\n===============================================================")
+
 
