@@ -1,4 +1,3 @@
-import operator
 from collections import defaultdict
 
 grafo = {
@@ -51,7 +50,26 @@ for v in vizinhos:
 
 print("\n===============================================================")
 
-print("\nEstado com o maior numero de vizinhos: " + max(frequencia.items(), key=operator.itemgetter(1))[0])
+maior = 0
+for v in frequencia:
+    for u in frequencia[v]:
+        if u > maior:
+            maior = u
+            vertMaior = v         
+
+menor = 1000
+for f in frequencia:
+    for g in frequencia[f]:
+        if g < menor:
+            menor = g
+            vertMenor = f                        
+
+
+print("\nEstado com o maior numero de vizinhos: ", vertMaior, "=>", maior, "vizinhos")
+
+print("\n===============================================================")
+
+print("\nEstado com o menor numero de vizinhos: ", vertMenor, "=>", menor, "vizinho")
 
 print("\n===============================================================")
 
@@ -78,3 +96,4 @@ for v in grafo:
 print('\nDensidade do grafo:', arestas/vertices)
 
 print("\n===============================================================")
+
