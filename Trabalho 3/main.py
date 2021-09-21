@@ -54,11 +54,11 @@ class Grafo(object):
                     self.g_impar[v] = [u]  
                     counterImpar += 1
         if counterPar == v:
-            print ('\nEuleriano')
+            print ('Euleriano')
         elif counterImpar == 2:
-            print ('\nSemi-Euleriano')
+            print ('Semi-Euleriano')
         elif counterImpar >= 2:
-            print ('\nNão Euleriano')
+            print ('Não Euleriano')
         
         if self.g_impar:
             for v in self.g_impar:
@@ -108,26 +108,22 @@ g4 =   {        1: {2, 3, 6},
 
 
 grafo = Grafo(g1)
-print(f'\nNúmero de arestas do grafo: {grafo.arestas}\nNúmero de vertices do grafo: {grafo.vertices}')
+print('\nGrafo 1')
+print(f'Número de arestas do grafo: {grafo.arestas}\nNúmero de vertices do grafo: {grafo.vertices}')
 grafo.test_euler()
 
 grafo2 = Grafo(g2)
-print(f'\nNúmero de arestas do grafo: {grafo2.arestas}\nNúmero de vertices do grafo: {grafo2.vertices}')
+print('\nGrafo 2')
+print(f'Número de arestas do grafo: {grafo2.arestas}\nNúmero de vertices do grafo: {grafo2.vertices}')
 grafo2.test_euler()
 
 grafo3 = Grafo(g3)
-print(f'\nNúmero de arestas do grafo: {grafo3.arestas}\nNúmero de vertices do grafo: {grafo3.vertices}')
+print('\nGrafo 3')
+print(f'Número de arestas do grafo: {grafo3.arestas}\nNúmero de vertices do grafo: {grafo3.vertices}')
 grafo3.test_euler()
 
 
 grafo4 = Grafo(g4)
-print(f'\nNúmero de arestas do grafo: {grafo4.arestas}\nNúmero de vertices do grafo: {grafo4.vertices}')
+print('\nGrafo 4')
+print(f'Número de arestas do grafo: {grafo4.arestas}\nNúmero de vertices do grafo: {grafo4.vertices}')
 grafo4.test_euler()
-
-
-
-
-
-
-
- 
