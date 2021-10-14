@@ -1,8 +1,0 @@
-
-B D E F 
-Numero de vertices: 6
-Numero de arestas: 6
-Grau minimo: D => [1]
-Grau maximo: B => [3]
-Grau medio: 2.0
-
