@@ -54,7 +54,7 @@ def report(message):
 
 
 graph = Grafo('G1')
-graph.dfs('3', 'p')
+graph.dfs('1', 'p')
 
 
 table_data = [
@@ -66,15 +66,11 @@ table_data = [
     ['Grau medio', graph.get_grau_medio()],
     ['Caminho arvore', graph.explored]
 ]
-table = AsciiTable(table_data)
-report(table.table)
 
+table = AsciiTable(table_data)
+
+
+report(table.table)
 
 tree_plot(graph.arvore_dfs, 600, 600, 'green', 'tree')
 graph_plot(graph.grafo, 600, 600, 'red', 'circle')
-
-
-
-print(graph.arvore_dfs)
-print(graph.grafo)
-print(graph.explored)
