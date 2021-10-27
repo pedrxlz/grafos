@@ -69,30 +69,24 @@ class Grafo(object):
                 self.dfs_r(vizinho)
         
 
-    def dfs_p(self, vertice, counter=0, dfs=defaultdict(list), grafo=defaultdict(list)):
+    def dfs_p(self, vertice, counter=0, dfs=defaultdict(list)):
         self.pile.append(vertice)
         
         while self.pile:
             current_node = self.pile.pop() 
             counter += 1
+            
             if dfs and counter < (self.arestas + 1):
                 dfs[current_node] = self.queue[current_node]
-                # dfs[self.queue.get(current_node)].append(current_node)
+            
             if len(self.explored) == 1:
                 dfs[self.explored[-1]].append(current_node)
                 dfs[current_node].append(self.explored[-1])
-            print(current_node)
-
             
             if current_node not in self.explored:
-            
                 self.explored.append(current_node)
             
-                
-            
                 for vizinho in self.grafo[current_node]:
-                    # if vizinho not in self.explored:
-                        
                         self.queue[vizinho].append(current_node)
                         if vizinho not in self.pile:
                             self.pile.append(vizinho)   
@@ -130,14 +124,3 @@ class Grafo(object):
             for u in self.frequencia[v]:
                 soma += u
         return (soma/int(self.vertices))
-                              
-# g = Grafo('G1')
-# g.dfs('1')
-# print(g.arvore_dfs)
-# print(g.explored)
-
-
-
-
-
-
