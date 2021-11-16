@@ -1,0 +1,24 @@
+A até B: 
+Custo: 4 
+Caminho: A -- > D -- > B
+
+A até C: 
+Custo: 6 
+Caminho: A -- > D -- > B -- > C
+
+A até D: 
+Custo: 1 
+Caminho: A -- > D
+
+A até E: 
+Custo: 5 
+Caminho: A -- > D -- > G -- > E
+
+A até F: 
+Custo: 6 
+Caminho: A -- > D -- > F
+
+A até G: 
+Custo: 4 
+Caminho: A -- > D -- > G
+
